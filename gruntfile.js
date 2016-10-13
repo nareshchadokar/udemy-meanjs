@@ -240,6 +240,8 @@ module.exports = function (grunt) {
   // Load NPM tasks
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-protractor-coverage');
+grunt.loadNpmTasks('grunt-contrib-sass');
+grunt.registerTask('default', ['sass']);
 
   // Make sure upload directory exists
   grunt.task.registerTask('mkdir:upload', 'Task that makes sure upload directory exists.', function () {
