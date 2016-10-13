@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Crudmodules</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="crudmodule in vm.crudmodules"
+       ui-sref="crudmodules.view({ crudmoduleId: crudmodule._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="crudmodule.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="crudmodule.user" ng-bind="crudmodule.user.displayName"></span>
+        <span ng-if="!crudmodule.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="crudmodule.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.crudmodules.$resolved && !vm.crudmodules.length">
+    No Crudmodules yet, why don't you <a ui-sref="crudmodules.create">create one</a>?
+  </div>
+</section>
